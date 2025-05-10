@@ -65,60 +65,57 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 <aside id="sidebar" class="sidebar">
-    <ul class="sidebar-nav" id="sidebar-nav">
-        <!-- Tableau de bord -->
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="index.php">
-                <i class="bi bi-grid"></i><span>Tableau de bord</span>
-            </a>
-        </li>
+<ul class="sidebar-nav" id="sidebar-nav">
+    <!-- Tableau de bord -->
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="index.php">
+            <i class="bi bi-house"></i><span>Accueil</span>
+        </a>
+        <a class="nav-link text-dark" href="dashbord.php">
+            <i class="bi bi-grid"></i><span>Tableau de Bord</span>
+        </a>
+    </li>
 
-      
+    <!-- Visible uniquement pour ADMIN -->
+    <?php if ($_SESSION['fonction'] === 'admin') : ?>
+        <li class="nav-heading">Produits</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="categories.php"><i class="bi bi-tags"></i><span>Catégories</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="produits.php"><i class="bi bi-box-seam"></i><span>Produits</span></a></li>
 
-            <!-- Module : Produits -->
-            <li class="nav-heading">Produits</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="categories.php"><i class="bi bi-tags"></i><span>Catégories</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="produits.php"><i class="bi bi-box-seam"></i><span>Produits</span></a></li>
+        <li class="nav-heading">Stock</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="stock.php"><i class="bi bi-shop"></i><span>Stock Général</span></a></li>
 
-            <!-- Module : Stock -->
-            <li class="nav-heading">Stock</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="stock.php"><i class="bi bi-shop"></i><span>Stock Général</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="entree.php"><i class="bi bi-box-arrow-in-down"></i><span>Stock Boutique</span></a></li>
+        <li class="nav-heading">Finances</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="depense.php"><i class="bi bi-cash-stack"></i><span>Dépenses</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="recettes.php"><i class="bi bi-bar-chart-line"></i><span>Recettes</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="rapport-benefices.php"><i class="bi bi-pie-chart"></i><span>Rapport Bénéfices</span></a></li>
 
-            <!-- Module : Ventes -->
-            <li class="nav-heading">Ventes</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="ventes.php"><i class="bi bi-basket"></i><span>Ventes</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="historique-ventes.php"><i class="bi bi-clock-history"></i><span>Historique Ventes</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="ticket.php"><i class="bi bi-receipt"></i><span>Tickets de Vente</span></a></li>
+        <li class="nav-heading">Utilisateurs</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="utilisateurs.php"><i class="bi bi-people"></i><span>Utilisateurs</span></a></li>
 
-            <!-- Module : Finances -->
-            <li class="nav-heading">Finances</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="depense.php"><i class="bi bi-cash-stack"></i><span>Dépenses</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="recettes.php"><i class="bi bi-bar-chart-line"></i><span>Recettes</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="rapport-benefices.php"><i class="bi bi-pie-chart"></i><span>Rapport Bénéfices</span></a></li>
-
-            <!-- Module : Utilisateurs -->
-            <li class="nav-heading">Utilisateurs</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="utilisateur.php"><i class="bi bi-people"></i><span>Utilisateurs</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="logs.php"><i class="bi bi-person"></i><span>Logs</span></a></li>
+        <li class="nav-heading">Logs</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs.php"><i class="bi bi-person"></i><span>Logs</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_produit.php"><i class="bi bi-receipt"></i><span>Logs_produits</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_vente.php"><i class="bi bi-receipt"></i><span>Logs_vente</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_stock.php"><i class="bi bi-receipt"></i><span>Logs_stock</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_depense.php"><i class="bi bi-receipt"></i><span>logs_depense</span></a></li>
         
-              <!-- Module : Utilisateurs -->
-              <li class="nav-heading">Logs</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="logs_produit.php"><i class="bi bi-receipt"></i><span>Logs_produits</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="logs_vente.php"><i class="bi bi-receipt"></i><span>Logs_vente</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="logs_stock.php"><i class="bi bi-receipt"></i><span>Logs_stock</span></a></li>
-        
-            <!-- Module : Clients et ventes -->
-            <li class="nav-heading">Ventes</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="client.php"><i class="bi bi-person"></i><span>Clients</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="commande.php"><i class="bi bi-terminal-plus"></i><span>Commandes</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="paiement.php"><i class="bi bi-credit-card"></i><span>Paiements</span></a></li>
 
-            <!-- Module : Dettes -->
-            <li class="nav-heading">Dettes</li>
-            <li class="nav-item"><a class="nav-link text-dark" href="dettes.php"><i class="bi bi-cash"></i><span>Liste des Dettes</span></a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="paiement-dettes.php"><i class="bi bi-cash-coin"></i><span>Paiement Dettes</span></a></li>
+        <li class="nav-heading">Dettes</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="dettes.php"><i class="bi bi-cash"></i><span>Liste des Dettes</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="paiement-dettes.php"><i class="bi bi-cash-coin"></i><span>Paiement Dettes</span></a></li>
+    <?php endif; ?>
 
-       
-    </ul>
+    <!-- Visible uniquement pour VENDEUR -->
+    <?php if ($_SESSION['fonction'] === 'vendeur') : ?>
+        <li class="nav-heading">Ventes</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="ventes.php"><i class="bi bi-basket"></i><span>Ventes</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="historique-ventes.php"><i class="bi bi-clock-history"></i><span>Historique Ventes</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="ticket.php"><i class="bi bi-receipt"></i><span>Tickets de Vente</span></a></li>
+
+        <li class="nav-heading">Clients</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="client.php"><i class="bi bi-person"></i><span>Clients</span></a></li>
+    <?php endif; ?>
+</ul>
+
 </aside>

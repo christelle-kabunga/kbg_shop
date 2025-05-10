@@ -1,33 +1,34 @@
 <?php
 session_start();
-require_once('../connexion/connexion.php');   // $connexion = new PDO(...)
+require_once('../connexion/connexion.php');
 
-if (isset($_POST['username'], $_POST['password'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['username']);
     $password = $_POST['password'];
 
-    $sql  = "SELECT * FROM utilisateur WHERE email = ?";
-    $stmt = $connexion->prepare($sql);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($password)) {
+        $_SESSION['msg'] = "Données invalides.";
+        header("location:../index.php");
+        exit;
+    }
+
+    $stmt = $connexion->prepare("SELECT * FROM utilisateur WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Vérifier l’e‑mail et le mot de passe
-    if ($user && $password === $user['mot_de_passe']) {
-
-        // 1) poser l’ID et d’autres infos dans la session
+    if ($user && password_verify($password, $user['mot_de_passe'])) {
         $_SESSION['user_id']  = $user['id'];
         $_SESSION['noms']     = $user['noms'];
-        $_SESSION['fonction'] = $user['fonction'];
+        $_SESSION['fonction'] = $user['role'];
+        $_SESSION['image']    = $user['image'] ?? 'default.png';
 
-        // 2) rediriger vers la page d’accueil (ou stock)
-        header('Location: ../views/index.php');
+        header("location:../views/index.php");
         exit;
-
     } else {
         $_SESSION['msg'] = "Identifiants incorrects.";
-         header("location:../index.php");
+        header("location:../index.php");
         exit;
     }
 }
- header("location:../index.php");
+header("location:../index.php");
 exit;
