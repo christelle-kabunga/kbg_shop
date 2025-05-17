@@ -64,7 +64,7 @@
                 <i class="bi bi-box"></i>
               </div>
               <div class="ps-3">
-                <h6 id="produits-val">145</h6>
+                <h6 id="produits-val">0 FC</h6>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@
                 <i class="bi bi-archive"></i>
               </div>
               <div class="ps-3">
-                <h6 id="stock-val">5,264</h6>
+                <h6 id="stock-val">0 FC</h6>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
                 <i class="bi bi-cart"></i>
               </div>
               <div class="ps-3">
-                <h6 id="ventes-val">3,264</h6>
+                <h6 id="ventes-val">0 FC</h6>
               </div>
             </div>
           </div>
@@ -142,12 +142,64 @@
                 <i class="bi bi-cash-coin"></i>
               </div>
               <div class="ps-3">
-                <h6 id="dettes-val">1,264</h6>
+                <h6 id="dettes-val">0 FC</h6>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
+      <!-- Carte Dépenses -->
+<div class="col-xxl-3 col-md-6">
+  <div class="card info-card revenue-card">
+    <div class="filter">
+      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+        <li><a class="dropdown-item filter-item" href="#" data-type="depenses" data-filter="today">Aujourd'hui</a></li>
+        <li><a class="dropdown-item filter-item" href="#" data-type="depenses" data-filter="month">Ce mois</a></li>
+        <li><a class="dropdown-item filter-item" href="#" data-type="depenses" data-filter="year">Cette année</a></li>
+        <li><a class="dropdown-item filter-item" href="#" data-type="depenses" data-filter="all">Tous</a></li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Dépenses <span id="depenses-label">| Ce mois</span></h5>
+      <div class="d-flex align-items-center">
+        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+          <i class="bi bi-wallet2"></i>
+        </div>
+        <div class="ps-3">
+          <h6 id="depenses-val">0 FC</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carte Paiement Dette -->
+<div class="col-xxl-3 col-md-6">
+  <div class="card info-card customers-card">
+    <div class="filter">
+      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+        <li><a class="dropdown-item filter-item" href="#" data-type="paiement_dette" data-filter="today">Aujourd'hui</a></li>
+        <li><a class="dropdown-item filter-item" href="#" data-type="paiement_dette" data-filter="month">Ce mois</a></li>
+        <li><a class="dropdown-item filter-item" href="#" data-type="paiement_dette" data-filter="year">Cette année</a></li>
+        <li><a class="dropdown-item filter-item" href="#" data-type="paiement_dette" data-filter="all">Tous</a></li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Paiements Dette <span id="paiement_dette-label">| Ce mois</span></h5>
+      <div class="d-flex align-items-center">
+        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+          <i class="bi bi-credit-card-2-front"></i>
+        </div>
+        <div class="ps-3">
+          <h6 id="paiement_dette-val">0 FC</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div><!-- Fin des cartes -->
   </div>
@@ -188,7 +240,7 @@
     });
 
     // ➕ Chargement automatique des données "Aujourd'hui" pour chaque type au chargement
-    ['produits', 'stock', 'ventes', 'dettes'].forEach(type => {
+    ['produits', 'stock', 'ventes', 'dettes', 'depenses', 'paiement_dette'].forEach(type => {
       chargerDonnees(type, 'today');
     });
   });

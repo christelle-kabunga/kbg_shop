@@ -31,13 +31,17 @@ switch ($type) {
         break;
 
     case 'dettes':
-        $sql = "SELECT SUM(montant) FROM dettes WHERE " . filtreDate('date_dette', $filter);
+        $sql = "SELECT SUM(montant) FROM dette WHERE " . filtreDate('date_dette', $filter);
         break;
 
     case 'depenses':
         $sql = "SELECT SUM(montant) FROM depenses WHERE " . filtreDate('date_depense', $filter);
         break;
 
+     case 'paiement_dette':
+         $sql = "SELECT SUM(montant_paye) FROM paiement_dette WHERE " . filtreDate('date_paiement', $filter);
+         break;
+        
     default:
         echo 0;
         exit;

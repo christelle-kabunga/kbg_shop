@@ -85,9 +85,8 @@ if (session_status() === PHP_SESSION_NONE) {
         <li class="nav-heading">Stock</li>
         <li class="nav-item"><a class="nav-link text-dark" href="stock.php"><i class="bi bi-shop"></i><span>Stock Général</span></a></li>
 
-        <li class="nav-heading">Finances</li>
-        <li class="nav-item"><a class="nav-link text-dark" href="depense.php"><i class="bi bi-cash-stack"></i><span>Dépenses</span></a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="recettes.php"><i class="bi bi-bar-chart-line"></i><span>Recettes</span></a></li>
+        <li class="nav-heading">Rapports</li>
+
         <li class="nav-item"><a class="nav-link text-dark" href="rapport-benefices.php"><i class="bi bi-pie-chart"></i><span>Rapport Bénéfices</span></a></li>
 
         <li class="nav-heading">Utilisateurs</li>
@@ -99,11 +98,11 @@ if (session_status() === PHP_SESSION_NONE) {
         <li class="nav-item"><a class="nav-link text-dark" href="logs_vente.php"><i class="bi bi-receipt"></i><span>Logs_vente</span></a></li>
         <li class="nav-item"><a class="nav-link text-dark" href="logs_stock.php"><i class="bi bi-receipt"></i><span>Logs_stock</span></a></li>
         <li class="nav-item"><a class="nav-link text-dark" href="logs_depense.php"><i class="bi bi-receipt"></i><span>logs_depense</span></a></li>
-        
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_dette.php"><i class="bi bi-receipt"></i><span>logs_Dettes</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_recette.php"><i class="bi bi-receipt"></i><span>logs_recette</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_user.php"><i class="bi bi-receipt"></i><span>logs_user</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="logs_paiement_dette.php"><i class="bi bi-receipt"></i><span>logs_paiement_dette</span></a></li>
 
-        <li class="nav-heading">Dettes</li>
-        <li class="nav-item"><a class="nav-link text-dark" href="dettes.php"><i class="bi bi-cash"></i><span>Liste des Dettes</span></a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="paiement-dettes.php"><i class="bi bi-cash-coin"></i><span>Paiement Dettes</span></a></li>
     <?php endif; ?>
 
     <!-- Visible uniquement pour VENDEUR -->
@@ -112,9 +111,11 @@ if (session_status() === PHP_SESSION_NONE) {
         <li class="nav-item"><a class="nav-link text-dark" href="ventes.php"><i class="bi bi-basket"></i><span>Ventes</span></a></li>
         <li class="nav-item"><a class="nav-link text-dark" href="historique-ventes.php"><i class="bi bi-clock-history"></i><span>Historique Ventes</span></a></li>
         <li class="nav-item"><a class="nav-link text-dark" href="ticket.php"><i class="bi bi-receipt"></i><span>Tickets de Vente</span></a></li>
-
-        <li class="nav-heading">Clients</li>
-        <li class="nav-item"><a class="nav-link text-dark" href="client.php"><i class="bi bi-person"></i><span>Clients</span></a></li>
+        <li class="nav-heading">Finances</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="depense.php"><i class="bi bi-cash-stack"></i><span>Dépenses</span></a></li>
+        <li class="nav-heading">Dettes</li>
+        <li class="nav-item"><a class="nav-link text-dark" href="dette.php"><i class="bi bi-cash"></i><span>Liste des Dettes</span></a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="paiement_dette.php"><i class="bi bi-cash-coin"></i><span>Paiement Dettes</span></a></li>
     <?php endif; ?>
 </ul>
 
